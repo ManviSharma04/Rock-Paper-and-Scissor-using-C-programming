@@ -1,0 +1,105 @@
+#include<stdio.h>
+#include<conio.h>
+int you,computer;//global declaration
+int menu()
+{
+    int ch;
+    printf("\t\t\t\t\t\t\t\t ROCK ,PAPER AND SCISSOR\n");
+    printf("\t\t\t\t\t\t\t\t*************************\n");
+    printf("\n\n\t\t1.Select Rock (o)");
+    printf("\t\t\t2.Select Paper (||)");
+    printf("\t\t\t3.Select Scissor (:<)");
+ printf("\t\t\t4.Exit");
+ printf("\n\nENTER YOUR CHOICE:\n");
+    scanf("%d",&ch);
+    return(ch);
+}
+void setup()
+{
+    label:
+    computer=rand()%4;
+    if (computer==0)
+        goto label;
+    you=menu();
+
+
+}
+void Makelogic()
+{
+    switch(you)
+    {
+        case 1:
+            if(computer==1)//you=rock,computer=rock
+               {
+                printf("\nGAME DRAW");
+                printf("\nResults: You=Rock\tComputer=Rock");
+               }
+               else if(computer==2)//you=rock,computer=paper
+               {
+                 printf("\nCOMPUTER WON");
+                 printf("\nResult: You=Rock\tComputer=Paper");
+               }
+               else
+               {
+                 printf("\n YOU WON");//you=rock,computer=scissors
+                 printf("\nResult: You=Rock\tComputer=Scissor");
+               }
+               break;
+
+
+        case 2:
+         if(computer==1)//you=paper,computer=rock
+               {
+                printf("\nYOU WON");
+                printf("\nResult: You=Paper\tComputer=Rock");
+               }
+               else if(computer==2)//you=paper,computer=paper
+               {
+                 printf("\nGAME DRAW");
+                 printf("\nResult: You=Paper\tComputer=Paper");
+               }
+               else
+               {
+                   printf("\n COMPUTER WON");//you=paper,computer=scissors
+                   printf("\nResult: You=Paper\tComputer=Scissor");
+               }
+               break;
+
+        case 3:
+            if(computer==1)//you=scissor,computer=rock
+               {
+               printf("\COMPUTER WON");
+               printf("\nResult: You=Scissor\tComputer=Rock");
+               }
+               else if(computer==2)//you=scissor,computer=paper
+               {
+                printf("\nYOU WON");
+                printf("\nResult: You=Scissor\tComputer=Paper");
+               }
+               else
+               {
+                   printf("\n GAME DRAW");//you=scissor,computer=scissors
+                   printf("\nResult: You=Scissor\tComputer=Scissor");
+               }
+               break;
+
+        case 4:
+            exit(0);
+            break;
+        default:
+            printf("\nInvalid user choice");
+    }
+}
+int main()
+{
+    while(1)
+    {
+        system("cls");
+        setup();
+        Makelogic();
+        getch();
+    }
+
+  return 0;
+}
+
